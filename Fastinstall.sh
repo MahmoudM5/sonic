@@ -9,8 +9,6 @@ chmod +x ts
 ./ts
 }
 get() {
-rm -fr Tshake.lua
-rm -fr sudo.lua
 wget "https://raw.githubusercontent.com/MahmoudM5/sonic/master/Tshake.lua"
 lua start.lua
 }
