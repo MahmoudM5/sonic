@@ -4,18 +4,15 @@ http = require("socket.http")
 JSON = dofile("./File_Libs/JSON.lua")
 local database = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
 print([[
+# _ ____ __ _ 
+# |  \| __\ \ / /  \|  \ 
+# | |__) | |__ \ \ / / | | | |__) |
+# | _ /| | \ \/ /| | | | _ / 
+# | | \ \| |__ \ / | |__| | | \ \ 
+# |_| \_\______| \/ \____/|_| \_\
 
-
-      ________         __         ______   __        ________        __    __ 
-      /        |       /  |       /      \ /  |      /        |      /  |  /  |
-      $$$$$$$$/_______ $$ |____  /$$$$$$  |$$ |   __ $$$$$$$$/       $$ |  $$ |
-         $$ | /       |$$      \ $$ |__$$ |$$ |  /  |$$ |__          $$  \/$$/ 
-         $$ |/$$$$$$$/ $$$$$$$  |$$    $$ |$$ |_/$$/ $$    |          $$  $$<  
-         $$ |$$      \ $$ |  $$ |$$$$$$$$ |$$   $$<  $$$$$/            $$$$  \ 
-         $$ | $$$$$$  |$$ |  $$ |$$ |  $$ |$$$$$$  \ $$ |_____        $$ /$$  |
-         $$ |/     $$/ $$ |  $$ |$$ |  $$ |$$ | $$  |$$       |      $$ |  $$ |
-         $$/ $$$$$$$/  $$/   $$/ $$/   $$/ $$/   $$/ $$$$$$$$/       $$/   $$/ 
-      
+# 饾檼饾檧饾檱饾樉饾檴饾檲饾檧 饾樈饾檷饾檴 饾檹饾檴 饾檸饾檴饾檺饾檷饾樉饾檧 饾檷饾檧饾檻饾檴饾檷 @REVORB0T
+# 饾檸饾檴饾檺饾檷饾樉饾檧 饾樈饾檾 @U660P - @MahmoudM2
 ]])
 Server_Tshake = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
 local AutoFiles_Tshake = function() 
@@ -31,14 +28,14 @@ UserName = "]]..UserName..[["
 Tshake_Info_Sudo:close()
 end  
 if not database:get(Server_Tshake.."Token_Tshake") then
-print("\27[1;34m»» Send Your Token Bot :\27[m")
+print("\27[1;34m禄禄 Send Your Token Bot :\27[m")
 local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
-io.write('\n\27[1;31m»» Sorry The Token is not Correct \n\27[0;39;49m')
+io.write('\n\27[1;31m禄禄 Sorry The Token is not Correct \n\27[0;39;49m')
 else
-io.write('\n\27[1;31m»» The Token Is Saved\n\27[0;39;49m')
+io.write('\n\27[1;31m禄禄 The Token Is Saved\n\27[0;39;49m')
 database:set(Server_Tshake.."Token_Tshake",token)
 end 
 else
@@ -58,24 +55,24 @@ end
 ------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------
 if not database:get(Server_Tshake.."UserName_Tshake") then
-print("\27[1;34m\n»» Send Your UserName Sudo : \27[m")
+print("\27[1;34m\n禄禄 Send Your UserName Sudo : \27[m")
 local UserName = io.read():gsub('@','')
 if UserName ~= '' then
 local Get_Info = http.request("http://tshake.ml/info/?user="..UserName)
 if Get_Info:match('Is_Spam') then
-io.write('\n\27[1;31m»» Sorry The server is Spsm \nتم حظر السيرفر لمدة 5 دقايق بسبب التكرار\n\27[0;39;49m')
+io.write('\n\27[1;31m禄禄 Sorry The server is Spsm \n鬲賲 丨馗乇 丕賱爻賷乇賮乇 賱賲丿丞 5 丿賯丕賷賯 亘爻亘亘 丕賱鬲賰乇丕乇\n\27[0;39;49m')
 return false
 end
 local Json = JSON:decode(Get_Info)
 if Json.Info == false then
-io.write('\n\27[1;31m»» Sorry The UserName is not Correct \n\27[0;39;49m')
+io.write('\n\27[1;31m禄禄 Sorry The UserName is not Correct \n\27[0;39;49m')
 os.execute('lua start.lua')
 else
 if Json.Info == 'Channel' then
-io.write('\n\27[1;31m»» Sorry The UserName Is Channel \n\27[0;39;49m')
+io.write('\n\27[1;31m禄禄 Sorry The UserName Is Channel \n\27[0;39;49m')
 os.execute('lua start.lua')
 else
-io.write('\n\27[1;31m»» The UserNamr Is Saved\n\27[0;39;49m')
+io.write('\n\27[1;31m禄禄 The UserNamr Is Saved\n\27[0;39;49m')
 database:set(Server_Tshake.."UserName_Tshake",Json.Info.Username)
 database:set(Server_Tshake.."Id_Tshake",Json.Info.Id)
 end
